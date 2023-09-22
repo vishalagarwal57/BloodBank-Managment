@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'images/bb_logo(black).png' %}" type="image/png">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Thank you!</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="header-logo"><img src="{% static 'images/lslogo.png' %}"></div>
+            <div class="header-list">
+                <ul>
+                    <li><a href="help.html">Connect</li></a>
+                    <li><a href="donate.html">Donate</li></a>
+                    <li><a href="index.html#vol-sect">Volunteer</li></a>
+                    <li><a href="index.html#about-us">About Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="inner">
+        <div class="main">
+            <h1>Thank You, {{name}} for registring as a Donor on our website</h1>
+            <div class="table">
+                <p>Here are some people who need your help. Start donating blood and saving lives.</p>
+                <div class="head">
+                    <p>Patient Name</p>
+                    <p>Blood Group</p>
+                    <p>Mobile</p>
+                    <p>Email</p>
+                </div>
+                {% for patient in patients %}
+                <div class="row">
+                    <p> {{patient.name}} </p>
+                    <p> {{patient.blood_group}} </p>
+                    <p> {{patient.mobile_no}} </p>
+                    <p> {{patient.email}} </p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
